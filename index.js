@@ -81,6 +81,8 @@ function playRound() {
     <p><div>Round ${roundCount}</div>
     <div>Make your moves</div></p>`;
     logs.appendChild(message)
+    logs.scrollTop = logs.scrollHeight;
+
     //changeAnnouncement();
     placeBets();
   } else if (playerOne.score === 0 || playerTwo.score === 0) {
@@ -94,11 +96,12 @@ function playRound() {
                               <div>Game over</div>
                               <div>${roundWinner} is the winner</div>`
     logs.appendChild(message)
+    logs.scrollTop = logs.scrollHeight;
+
     //announcements.innerHTML = `<p><strong>${roundWinner}</strong> ${outcome} and won <strong>${wonAmount} marbles.</strong></p>
     //                             <h3>Game over</h3>
     //                             <p>${roundWinner} is the winner</p>`;
     const popupResult = document.getElementById('popupResult');
-    const popupMsg = document.getElementById('popupMsg');
     if (roundWinner === playerOne.name) {
       popupResult.innerHTML = 'You won!🥳';
     } else {
@@ -123,6 +126,8 @@ function playRound() {
     <p><div>Round ${roundCount}</div>
     <div>Make your moves</div></p>`
     logs.appendChild(message)
+    logs.scrollTop = logs.scrollHeight;
+
     //changeAnnouncement();
     changeRoles();
     renderRoles();
