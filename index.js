@@ -57,6 +57,8 @@ function bothReady() {
 }
 
 function playRound() {
+  const gameboard = document.getElementById('gameboard');
+  gameboard.classList.add('withBorders')
   logs.classList.remove('none')
   resolveTurn();
   roundCount++;

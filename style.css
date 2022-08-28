@@ -101,10 +101,14 @@ input {
 
 }
 
-#gameboard {
-  background-color: #0f172a;
+.withBorders {
   border-top: 2px solid #94a3b8;
   border-bottom: 2px solid #94a3b8;
+}
+
+#gameboard {
+  background-color: #0f172a;
+  
   padding-top: 2rem;
 }
 
