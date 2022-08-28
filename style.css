@@ -165,3 +165,8 @@ button {
   display: flex;
   align-items: center;
 }
+
+#betForm > div {
+  display: flex;
+  align-items: flex-end;
+}
