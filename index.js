@@ -73,7 +73,7 @@ function playRound() {
     renderMarbles();
     decideRoles();
     renderRoles();
-    changeAnnouncement();
+    //changeAnnouncement();
     placeBets();
   } else if (playerOne.score === 0 || playerTwo.score === 0) {
     //game ends
@@ -81,9 +81,9 @@ function playRound() {
     betForm.classList.add("hidden");
     roleOne.classList.add("none");
     roleTwo.classList.add("none");
-    announcements.innerHTML = `<p><strong>${roundWinner}</strong> ${outcome} and won <strong>${wonAmount} marbles.</strong></p>
-                                 <h3>Game over</h3>
-                                 <p>${roundWinner} is the winner</p>`;
+    //announcements.innerHTML = `<p><strong>${roundWinner}</strong> ${outcome} and won <strong>${wonAmount} marbles.</strong></p>
+    //                             <h3>Game over</h3>
+    //                             <p>${roundWinner} is the winner</p>`;
     const newGame = document.createElement('button');
     newGame.innerHTML = 'New Game';
     newGame.classList.add('newGame')
@@ -96,7 +96,7 @@ function playRound() {
     reRenderMarbles();
     changeRoles();
     renderRoles();
-    changeAnnouncement();
+    //changeAnnouncement();
     placeBets();
   }
 }

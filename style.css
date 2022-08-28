@@ -1,3 +1,6 @@
+@font-face {font-family: 'Bridal'; src: url('./bridal-parties-demo/BridalPartiesDemoRegular.ttf');}
+@font-face {font-family: 'Montserrat'; src: url('./montserrat/Montserrat-Medium.otf');}
+
 body {
   margin: 0;
 }
@@ -7,9 +10,7 @@ body {
   height: 100vh;
 }
 
-#announcements {
-  font-size: 1.4rem;
-}
+
 
 #getName {
   display: flex;
@@ -40,11 +41,18 @@ body {
 
 #playerOne, #playerTwo {
   height: 10%;
-  border: 1px solid black;
   display: flex;
   align-items: center;
   padding: 0 1rem;
   justify-content: space-between;
+}
+#playerOne {
+  box-shadow: 0 0.1rem 2rem;
+
+
+}
+#playerTwo {
+  box-shadow: 0 0.1rem 2rem;
 }
 #infoOne, #infoTwo {
   display: flex;
@@ -107,6 +115,16 @@ body {
   text-align: center;
 }
 
+.logo {
+  font-family: 'Bridal';
+
+}
+
+#announcements {
+  font-size: 1.4rem;
+  height: 12rem;
+}
+
 #betForm {
   height: 20%;
   display: flex;
@@ -121,4 +139,16 @@ body {
 }
 #betForm > button {
   font-size: 1rem;
+}
+
+#jpg {
+  
+
+}
+#jpg > img {
+  border: 0px solid black;
+  width: fit-content;
+  border-radius: 10rem;
+  height: 10rem;
+  box-shadow: 0 0 1rem 0.5rem;
 }
