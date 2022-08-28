@@ -14,7 +14,6 @@ let playerTwo;
 let roundCount = 0;
 
 const betForm = document.getElementById('betForm');
-const marblesOne = document.getElementById('marblesOne');
 
 const roleOne = document.getElementById('roleOne');
 const roleTwo = document.getElementById('roleTwo');
@@ -67,17 +66,16 @@ function playRound() {
   betForm.classList.remove("hidden");
 
   renderScore();
+  renderMarbles();
 
   if (roundCount === 1) {
     //first round
-    renderMarbles();
     decideRoles();
     renderRoles();
     //changeAnnouncement();
     placeBets();
   } else if (playerOne.score === 0 || playerTwo.score === 0) {
     //game ends
-    reRenderMarbles();
     betForm.classList.add("hidden");
     roleOne.classList.add("none");
     roleTwo.classList.add("none");
@@ -93,7 +91,6 @@ function playRound() {
     })
   } else {
     //default
-    reRenderMarbles();
     changeRoles();
     renderRoles();
     //changeAnnouncement();
@@ -294,9 +291,11 @@ function renderMarbles() {
 }
 */
 
+
+
 const marblePiecesOne = document.querySelectorAll('.marble.one');
 const marblePiecesTwo = document.querySelectorAll('.marble.two');
-
+/**
 function renderMarbles() {
   for (let i = 0; i < playerOne.score; i++) {
     marblePiecesOne[i].classList.remove('small')
@@ -308,7 +307,8 @@ function renderMarbles() {
     marblePiecesTwo[i].classList.add('big')
   }
 }
-function reRenderMarbles() {
+**/
+/**function reRenderMarbles() {
   const marblePiecesOneBig = document.querySelectorAll('.marble.one.big');
 
   if (playerOne.score > marblePiecesOneBig.length) {
@@ -341,4 +341,24 @@ function reRenderMarbles() {
     }
   }
 }
+**/
 
+const marblesOne = document.getElementById('marblesOne');
+const marblesTwo = document.getElementById('marblesTwo')
+
+function renderMarbles() {
+  marblesOne.innerHTML = '';
+  for (let i = 0; i < playerOne.score; i++) {
+    const pieceOne = document.createElement('div');
+    pieceOne.classList.add('marble','one','big');
+    pieceOne.innerHTML = '<img src="./marble.png">';
+    marblesOne.appendChild(pieceOne);
+  }
+  marblesTwo.innerHTML = '';
+  for (let i = 0; i < playerTwo.score; i++) {
+    const pieceTwo = document.createElement('div');
+    pieceTwo.classList.add('marble','one','big');
+    pieceTwo.innerHTML = '<img src="./marble.png">';
+    marblesTwo.appendChild(pieceTwo);
+  }
+}
