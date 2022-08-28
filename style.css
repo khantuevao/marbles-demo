@@ -3,8 +3,8 @@
 
 body {
   margin: 0;
-  background-color: #94a3b8;
-
+  background-color: #0f172a;
+  color: #f8fafc;
 }
 
 #mainContainer {
@@ -44,7 +44,6 @@ input {
   align-items: center;
   padding: 0 1rem;
   justify-content: space-between;
-  background-color: #94a3b8;
 }
 
 #infoOne, #infoTwo {
@@ -98,13 +97,14 @@ input {
 
 .marble > img {
   height: 1.1rem;
+
 }
 
 #gameboard {
   height: 90%;
-  background-color: #cbd5e1;
-  border-top: 1px solid #475569;
-  border-bottom: 2px solid #475569;
+  background-color: #0f172a;
+  border-top: 1px solid #94a3b8;
+  border-bottom: 2px solid #94a3b8;
 
 }
 
@@ -119,7 +119,7 @@ input {
 
 .logo {
   font-family: 'Bridal';
-  color: #0f172a;
+  color: #f8fafc;
 }
 
 #announcements {
@@ -135,7 +135,6 @@ input {
   justify-content: center;
   gap: 0.4rem;
   font-size: 1.2rem;
-  background-color: #94a3b8;
 
 }
 #betForm > div {
@@ -149,7 +148,7 @@ input {
   width: fit-content;
   border-radius: 10rem;
   height: 10rem;
-  box-shadow: 0 0 1rem 0.5rem;
+  box-shadow: 0 0 1rem 0.1rem #f8fafc;
 }
 
 input {
@@ -160,11 +159,14 @@ input {
 
 button {
   border-radius: 1rem;
-  border: 1px solid #334155;
+  border: 1px solid #f8fafc;
   height: 1.6rem;
   font-size: 1rem;
   display: flex;
   align-items: center;
+  background-color: #0f172a;
+  color: #f8fafc;
+  
 }
 
 #betForm > div {
