@@ -44,8 +44,9 @@ input {
 }
 
 .getName {
-  margin-left: 3rem;
+  margin-left: 1rem;
 }
+
 
 
 #infoOne, #infoTwo {
@@ -102,8 +103,8 @@ input {
 }
 
 .withBorders {
-  border-top: 2px solid #94a3b8;
-  border-bottom: 2px solid #94a3b8;
+  border-top: 2px solid #f8fafc;
+  border-bottom: 2px solid #f8fafc;
 }
 
 #gameboard {
@@ -141,6 +142,8 @@ input {
 }
 #betForm > div {
   margin-bottom: 0.5rem;
+  display: flex;
+  gap: 0.2rem;
 }
 #betForm > button {
   font-size: 1rem;
@@ -182,8 +185,77 @@ button {
 
 .logs {
   padding: 0.2rem;
-  border: 1px solid white;
+  border: 1px solid #f8fafc;
   margin: 1rem 1rem;
   overflow: scroll;
   height: max(8rem);
+  border-radius: 1rem;
+}
+
+.visible {
+  visibility: visible;
+  margin-top: -5rem;
+  margin-bottom: 5rem;
+}
+
+
+
+
+
+
+.overlay {
+  position: absolute;
+  top: -300px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);  
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+  top:0px;
+}
+
+.popup {
+  margin: 300px auto;
+  padding: 20px;
+  background: #0f172a;
+  border-radius: 5px;
+  width: 15rem;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+  margin-top: 0;
+  color: #f8fafc;
+  font-family: Tahoma, Arial, sans-serif;
+}
+
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #f8fafc;
+  
+}
+
+.popup .close:hover {
+  color: #f8fafc;
+  transform: rotate(90deg);
+}
+
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
+  color: #f8fafc;
 }

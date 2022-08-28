@@ -97,10 +97,25 @@ function playRound() {
     //announcements.innerHTML = `<p><strong>${roundWinner}</strong> ${outcome} and won <strong>${wonAmount} marbles.</strong></p>
     //                             <h3>Game over</h3>
     //                             <p>${roundWinner} is the winner</p>`;
+    const popupResult = document.getElementById('popupResult');
+    const popupMsg = document.getElementById('popupMsg');
+    if (roundWinner === playerOne.name) {
+      popupResult.innerHTML = 'You won!🥳';
+    } else {
+      popupResult.innerHTML = 'You lost🙁';
+    }
+    const popupBtn = document.querySelector('.button');
+    popupBtn.click();
+
+    const tryAgain = document.createElement('button');
+    tryAgain.innerHTML = 'Try Again';
+    tryAgain.classList.add('visible')
+    betForm.appendChild(tryAgain);
+    tryAgain.addEventListener('click', () => {
+      window.location.reload();
+    })
   } else {
     //default
-    changeRoles();
-    renderRoles();
 
     const message = document.createElement('p');
     message.innerHTML = `<div>${roundWinner} ${outcome} and won ${wonAmount} marbles.</div>
