@@ -19,7 +19,7 @@ const roleOne = document.getElementById('roleOne');
 const roleTwo = document.getElementById('roleTwo');
 
 const announcements = document.getElementById("announcements");
-const logs = document.getElementById('logs');
+const logs = document.querySelector('.logs');
 
 const submitName = document.getElementById('submitName');
 submitName.addEventListener('click', () => {
@@ -34,7 +34,8 @@ submitName.addEventListener('click', () => {
   playerTwo = Player('A.I.')
   playerTwo.ready = true;
 
-  const getName = document.getElementById('getName');
+  const getName = document.querySelector('.getName');
+  getName.classList.add('none')
   getName.innerHTML = '';
 
   const playerTwoDiv = document.getElementById('playerTwo');
@@ -56,6 +57,7 @@ function bothReady() {
 }
 
 function playRound() {
+  logs.classList.remove('none')
   resolveTurn();
   roundCount++;
 
@@ -74,8 +76,8 @@ function playRound() {
 
     const message = document.createElement('p');
     message.innerHTML = `<div>Players have been assigned roles randomly</div>
-    <div>Round ${roundCount}</div>
-    <div>Make your moves</div>`;
+    <p><div>Round ${roundCount}</div>
+    <div>Make your moves</div></p>`;
     logs.appendChild(message)
     //changeAnnouncement();
     placeBets();
@@ -100,10 +102,13 @@ function playRound() {
 
     const message = document.createElement('p');
     message.innerHTML = `<div>${roundWinner} ${outcome} and won ${wonAmount} marbles.</div>
-    <div>Round ${roundCount}</div>
-    <div>Make your moves</div>`
+    <div>${playerOne.name} bet ${playerOne.bet} as ${playerOne.role} vs ${playerTwo.name}'s ${playerTwo.bet} as ${playerTwo.role}</div>
+    <p><div>Round ${roundCount}</div>
+    <div>Make your moves</div></p>`
     logs.appendChild(message)
     //changeAnnouncement();
+    changeRoles();
+    renderRoles();
     placeBets();
   }
 }

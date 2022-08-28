@@ -12,7 +12,7 @@ body {
 
 
 
-#getName {
+.getName {
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -41,6 +41,10 @@ input {
   align-items: center;
   padding: 0.5rem 1rem;
   justify-content: space-between;
+}
+
+.getName {
+  margin-left: 3rem;
 }
 
 
@@ -172,10 +176,10 @@ button {
   align-items: flex-end;
 }
 
-#logs {
+.logs {
   padding: 0.2rem;
   border: 1px solid white;
   margin: 1rem 1rem;
   overflow: scroll;
-  height: 8rem;
+  height: max(8rem);
 }
