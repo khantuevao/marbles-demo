@@ -19,8 +19,7 @@ const roleOne = document.getElementById('roleOne');
 const roleTwo = document.getElementById('roleTwo');
 
 const announcements = document.getElementById("announcements");
-
-
+const logs = document.getElementById('logs');
 
 const submitName = document.getElementById('submitName');
 submitName.addEventListener('click', () => {
@@ -72,6 +71,12 @@ function playRound() {
     //first round
     decideRoles();
     renderRoles();
+
+    const message = document.createElement('p');
+    message.innerHTML = `<div>Players have been assigned roles randomly</div>
+    <div>Round ${roundCount}</div>
+    <div>Make your moves</div>`;
+    logs.appendChild(message)
     //changeAnnouncement();
     placeBets();
   } else if (playerOne.score === 0 || playerTwo.score === 0) {
@@ -79,20 +84,25 @@ function playRound() {
     betForm.classList.add("hidden");
     roleOne.classList.add("none");
     roleTwo.classList.add("none");
+
+    const message = document.createElement('p');
+    message.innerHTML = `<div>${roundWinner} ${outcome} and won ${wonAmount} marbles.</div>
+                              <div>Game over</div>
+                              <div>${roundWinner} is the winner</div>`
+    logs.appendChild(message)
     //announcements.innerHTML = `<p><strong>${roundWinner}</strong> ${outcome} and won <strong>${wonAmount} marbles.</strong></p>
     //                             <h3>Game over</h3>
     //                             <p>${roundWinner} is the winner</p>`;
-    const newGame = document.createElement('button');
-    newGame.innerHTML = 'New Game';
-    newGame.classList.add('newGame')
-    betForm.appendChild(newGame)
-    newGame.addEventListener('click', () => {
-      window.location.reload();
-    })
   } else {
     //default
     changeRoles();
     renderRoles();
+
+    const message = document.createElement('p');
+    message.innerHTML = `<div>${roundWinner} ${outcome} and won ${wonAmount} marbles.</div>
+    <div>Round ${roundCount}</div>
+    <div>Make your moves</div>`
+    logs.appendChild(message)
     //changeAnnouncement();
     placeBets();
   }
@@ -290,8 +300,6 @@ function renderMarbles() {
 
 }
 */
-
-
 
 const marblePiecesOne = document.querySelectorAll('.marble.one');
 const marblePiecesTwo = document.querySelectorAll('.marble.two');

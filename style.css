@@ -109,7 +109,7 @@ input {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 3rem;
+  font-size: 2.5rem;
 }
 
 .logo {
@@ -145,7 +145,7 @@ input {
 #jpg > img {
   width: fit-content;
   border-radius: 10rem;
-  height: 10rem;
+  height: 8rem;
   box-shadow: 0 0 1rem 0.1rem #f8fafc;
 }
 
@@ -170,4 +170,12 @@ button {
 #betForm > div {
   display: flex;
   align-items: flex-end;
+}
+
+#logs {
+  padding: 0.2rem;
+  border: 1px solid white;
+  margin: 1rem 1rem;
+  overflow: scroll;
+  height: 8rem;
 }
