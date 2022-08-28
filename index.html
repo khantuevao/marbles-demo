@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>marbles demo</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="./index.js" defer></script>
+</head>
+<body>
+  <div id="mainContainer">
+
+    <div id="playerTwo" class="hidden">
+
+      <div id="infoTwo">
+        <div id="nameTwo"></div>
+        <div id="roleTwo"></div>
+      </div>
+
+      <div id="scoreTwo">
+        <div id="scoreNumberTwo"></div>
+        <div id="marblesTwo">
+          <div class="marble two small"><img src="./marble.png"></div>
+          <div class="marble two small"><img src="./marble.png"></div>
+          <div class="marble two small"><img src="./marble.png"></div>
+          <div class="marble two small"><img src="./marble.png"></div>
+          <div class="marble two small"><img src="./marble.png"></div>
+          <div class="marble two small"><img src="./marble.png"></div>
+          <div class="marble two small"><img src="./marble.png"></div>
+          <div class="marble two small"><img src="./marble.png"></div>
+          <div class="marble two small"><img src="./marble.png"></div>
+          <div class="marble two small"><img src="./marble.png"></div>
+          <div class="marble two small"><img src="./marble.png"></div>
+          <div class="marble two small"><img src="./marble.png"></div>
+          <div class="marble two small"><img src="./marble.png"></div>
+          <div class="marble two small"><img src="./marble.png"></div>
+          <div class="marble two small"><img src="./marble.png"></div>
+          <div class="marble two small"><img src="./marble.png"></div>
+          <div class="marble two small"><img src="./marble.png"></div>
+          <div class="marble two small"><img src="./marble.png"></div>
+          <div class="marble two small"><img src="./marble.png"></div>
+          <div class="marble two small"><img src="./marble.png"></div>
+        </div>
+      </div>
+
+    </div>  
+
+    <div id="gameboard">Magic Marble
+      <div id="announcements"></div>
+    </div>
+
+    <div id="playerOne">
+
+      <div id="getName">
+        <label for="">Enter name:</label>
+        <input id="inputName" type="text">
+        <button id="submitName">Submit</button>
+      </div>
+
+      <div id="infoOne">
+        <div id="nameOne"></div>
+        <div id="roleOne"></div>
+      </div>
+
+      <div id="scoreOne" class="hidden">
+        <div id="scoreNumberOne"></div>
+        <div id="marblesOne">
+          <div class="marble two small"><img src="./marble.png"></div>
+          <div class="marble two small"><img src="./marble.png"></div>
+          <div class="marble two small"><img src="./marble.png"></div>
+          <div class="marble two small"><img src="./marble.png"></div>
+          <div class="marble two small"><img src="./marble.png"></div>
+          <div class="marble two small"><img src="./marble.png"></div>
+          <div class="marble two small"><img src="./marble.png"></div>
+          <div class="marble two small"><img src="./marble.png"></div>
+          <div class="marble two small"><img src="./marble.png"></div>
+          <div class="marble two small"><img src="./marble.png"></div>
+          <div class="marble two small"><img src="./marble.png"></div>
+          <div class="marble two small"><img src="./marble.png"></div>
+          <div class="marble two small"><img src="./marble.png"></div>
+          <div class="marble two small"><img src="./marble.png"></div>
+          <div class="marble two small"><img src="./marble.png"></div>
+          <div class="marble two small"><img src="./marble.png"></div>
+          <div class="marble two small"><img src="./marble.png"></div>
+          <div class="marble two small"><img src="./marble.png"></div>
+          <div class="marble two small"><img src="./marble.png"></div>
+          <div class="marble two small"><img src="./marble.png"></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div id="betForm" class="hidden">
+      <div>
+        <label for="evenOne">Even</label>
+        <input type="radio" name="choiceOne" id="evenOne" value="even" checked>
+        <label for="oddOne">Odd</label>
+        <input type="radio" name="choiceOne" id="oddOne" value="odd">
+      </div>
+      <label for="betFieldOne">Place your bet:</label>
+      <input type="number" id="betFieldOne">
+      <button id="submitBetOne">Submit</button>
+    </div>
+  </div>
+</body>
+</html>
