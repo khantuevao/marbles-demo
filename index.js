@@ -159,11 +159,11 @@ function renderRoles() {
     roleOne.innerHTML = 'hider';
     roleTwo.innerHTML = 'guesser';
   } else if (language === 'RU' && playerOne.role === 'guesser') {
-    roleOne.innerHTML = 'отгадывающий'
-    roleTwo.innerHTML = 'загадывающий'
+    roleOne.innerHTML = 'Угадывающий'
+    roleTwo.innerHTML = 'Загадывающий'
   } else if (language === 'RU' && playerOne.role === 'hider') {
-    roleOne.innerHTML = 'загадывающий'
-    roleTwo.innerHTML = 'отгадывающий'
+    roleOne.innerHTML = 'Загадывающий'
+    roleTwo.innerHTML = 'Угадывающий'
   }
 }
 
@@ -454,9 +454,9 @@ function updateLanguage() {
       tryAgain.innerHTML = 'Try again'
     }
   } else {
-    evenLabel.innerHTML = 'Четное'
-    oddLabel.innerHTML = 'Нечетное'
-    betLabel.innerHTML = 'Сделайте ставку:'
+    evenLabel.innerHTML = 'Чет'
+    oddLabel.innerHTML = 'Нечет'
+    betLabel.innerHTML = 'Ваша ставка:'
     submitBetOne.innerHTML = 'Отправить'
     languageBtn.innerHTML = 'ru'
     rules.innerHTML = 'правила'
@@ -471,19 +471,20 @@ function updateStarter() {
   const nameLabel = document.getElementById('nameLabel');
   if (language === 'EN') {
     nameLabel.innerHTML = 'Enter name:'
-    submitName.innerHTML = 'Ok'
+    submitName.innerHTML = 'Play'
     languageBtn.innerHTML = 'en'
-    rules.innerHTML = 'rules'
+    rules.innerHTML = 'Rules'
   } else {
     nameLabel.innerHTML = 'Введите имя:'
-    submitName.innerHTML = 'Ок'
+    submitName.innerHTML = 'Играть'
     languageBtn.innerHTML = 'ru'
-    rules.innerHTML = 'правила'
+    rules.innerHTML = 'Правила'
   }
 }
 
 window.addEventListener('load', (event) => {
   updateStarter()
+  updateLink()
 })
 
 const languageBtn = document.getElementById('language');
@@ -491,9 +492,19 @@ languageBtn.addEventListener('click', () => {
   if (gameStarted) {
     changeLanguage()
     updateLanguage()
+    updateLink()
   } else {
     changeLanguage()
     updateStarter()
+    updateLink()
   }
   
 })
+
+function updateLink() {
+  if (language === 'EN') {
+    rules.setAttribute('href', '#rulesEN')
+  } else {
+    rules.setAttribute('href', '#rulesRU')
+  }
+}

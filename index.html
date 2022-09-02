@@ -11,8 +11,8 @@
 <body>
   <div id="mainContainer">
     <div id="menu">
-      <button id="rules">rules</button>
-      <button id="language">language</button>
+      <a id="rules">rules</a>
+      <a id="language">language</a>
     </div>
 
     <div id="playerTwo" class="hidden">
@@ -97,10 +97,44 @@
   </div>
   
 
-<div id="popup1" class="overlay">
-  <div class="popup">
-    <h2 id="popupResult"></h2>
-    <a class="close" href="#">×</a>
+  <div id="popup1" class="overlay">
+    <div class="popup">
+      <h2 id="popupResult"></h2>
+      <a class="close" href="#">×</a>
+    </div>
+  </div>
+
+  <div id="rulesEN" class="overlay">
+    <div class="rulesPopupEN">
+      <h2 id="rulesResultEN">Game rules<a class="close" href="#">×</a>
+      </h2>
+      <ul>
+        <li>Each player is dealt 10 marbles at the start.</li>
+        <li>There are only 2 players (i.e./ 'Hider' and 'Guesser'). Players change roles after each round.</li>
+        <li>Objective of the game is to collect all of your opponent’s marbles.</li>
+        <li>Each round, players have to pick a number from 1 to 10 from their stack. Guesser's objective is to correctly predict if Hider's number is odd or even. </li>
+        <li>The prize is determined by the amount of marbles Guesser wagered.</li>
+        <li>Example 1: Hider choses 3 marbles; Guesser correctly reckons that his opponent would choose an odd number and bets 2. Result: Guesser wins 2 marbles.</li>
+        <li>Example 2: Hider picks 5 marbles, Guesser wagers 8 and guesses incorrectly. Results: Guesser loses 8 marbles.</li>
+        <li>If one of the Players is left with only 1 marble, he can only assume the Guesser role.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="rulesRU" class="overlay">
+    <div class="rulesPopupRU">
+      <h2 id="rulesResultRU">Правила игры<a class="close" href="#">×</a>
+      </h2>
+      <ul>
+        <li>В начале игры каждый игрок получает 10 шаров.</li>
+        <li>Существует только 2 игрока - “Угадывающий” и “Загадывающий”. Игроки меняются ролями после каждого раунда..</li>
+        <li>Цель игры - выиграть все шары соперника.</li>
+        <li>В начале раунда “Загадывающий” выбирает число шаров от 1 до 10. Цель “Угадывающего” отгадать четное или нечетное число шаров выбрал его соперник. </li>
+        <li>Приз каждого раунда определяется размером ставки “Угадывающего”.</li>
+        <li>Пример 1: “Загадывающий” выбирает 3 шара, “Угадывающий” верно предполагает, что соперник выберет нечетное число и, делает ставку в 2 шара. Результат - “Угадывающий” выигрывает 2 шара.</li>
+        <li>Пример 2: => “Загадывающий” выбирает 5 шаров, “Угадывающий” предполагает что соперник выбрал четное число и ставит 8 шаров => отгадывает неверно. Результат: “Загадывающий” выигрывает 8 шаров.</li>
+        <li>Если у одного из игроков остается только 1 шар, он может быть только в роли Угадывающего”.</li>
+      </ul>
     </div>
   </div>
 </div>
