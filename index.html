@@ -10,6 +10,11 @@
 </head>
 <body>
   <div id="mainContainer">
+    <div id="menu">
+      <button id="rules">rules</button>
+      <button id="language">language</button>
+    </div>
+
     <div id="playerTwo" class="hidden">
 
       <div id="infoTwo">
@@ -44,9 +49,9 @@
     <div id="playerOne">
 
       <div class="getName">
-        <label for="inputName">Enter name:</label>
+        <label id="nameLabel" for="inputName"></label>
         <input id="inputName" type="text">
-        <button id="submitName">Submit</button>
+        <button id="submitName"></button>
       </div>
 
       <div id="infoOne">
@@ -74,18 +79,17 @@
 
     <div id="betForm" class="hidden">
       <div>
-        <label for="evenOne">Even</label>
+        <label id="evenLabel" for="evenOne"></label>
         <input type="radio" name="choiceOne" id="evenOne" value="even" checked>
-        <label for="oddOne">Odd</label>
+        <label id="oddLabel" for="oddOne"></label>
         <input type="radio" name="choiceOne" id="oddOne" value="odd">
       </div>
-      <label for="betFieldOne">Place your bet:</label>
+      <label id="betLabel" for="betFieldOne"></label>
       <input type="number" id="betFieldOne">
-      <button id="submitBetOne">Submit</button>
+      <button id="submitBetOne"></button>
     </div>
 
-    <div class="logs none">
-    </div>
+    <div class="logs none"></div>
   </div>
 
   <div class="box">

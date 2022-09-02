@@ -8,12 +8,16 @@ const Player = (name) => {
   return { name, score, bet, role, ready, choice };
 };
 
+let gameStarted = false;
+
 let playerOne;
 let playerTwo;
 
 let roundCount = 0;
 
 const betForm = document.getElementById('betForm');
+
+const rules = document.getElementById('rules');
 
 const roleOne = document.getElementById('roleOne');
 const roleTwo = document.getElementById('roleTwo');
@@ -57,6 +61,8 @@ function bothReady() {
 }
 
 function playRound() {
+  gameStarted = true;
+  updateLanguage();
   const gameboard = document.getElementById('gameboard');
   gameboard.classList.add('withBorders')
   logs.classList.remove('none')
@@ -93,7 +99,8 @@ function playRound() {
 
     const message = document.createElement('p');
     message.innerHTML = `<div>${roundWinner} ${outcome} and won ${wonAmount} marbles.</div>
-                              <div>Game over</div>
+    <div>${playerOne.name} bet ${playerOne.bet} as ${playerOne.role} vs ${playerTwo.name}'s ${playerTwo.bet} as ${playerTwo.role}</div>
+    <div>Game over</div>
                               <div>${roundWinner} is the winner</div>`
     logs.appendChild(message)
     logs.scrollTop = logs.scrollHeight;
@@ -102,16 +109,25 @@ function playRound() {
     //                             <h3>Game over</h3>
     //                             <p>${roundWinner} is the winner</p>`;
     const popupResult = document.getElementById('popupResult');
-    if (roundWinner === playerOne.name) {
+    if (roundWinner === playerOne.name && language === 'EN') {
       popupResult.innerHTML = 'You won!🥳';
-    } else {
+    } else if (roundWinner === playerOne.name && language === 'RU') {
+      popupResult.innerHTML = 'Вы победили!🥳';
+    } else if (roundWinner === playerTwo.name && language === 'EN') {
       popupResult.innerHTML = 'You lost🙁';
+    } else if (roundWinner === playerTwo.name && language === 'RU') {
+      popupResult.innerHTML = 'Вы проиграли🙁';
     }
     const popupBtn = document.querySelector('.button');
     popupBtn.click();
 
     const tryAgain = document.createElement('button');
-    tryAgain.innerHTML = 'Try Again';
+    tryAgain.setAttribute('id', 'tryAgain');
+    if (language === 'EN') {
+      tryAgain.innerHTML = 'Try Again';
+    } else {
+      tryAgain.innerHTML = 'Еще раз'
+    }
     tryAgain.classList.add('visible')
     betForm.appendChild(tryAgain);
     tryAgain.addEventListener('click', () => {
@@ -136,9 +152,19 @@ function playRound() {
 }
 
 function renderRoles() {
-  roleOne.innerHTML = `${playerOne.role}`;
-
-  roleTwo.innerHTML = `${playerTwo.role}`;
+  if (language === 'EN' && playerOne.role === 'guesser') {
+    roleOne.innerHTML = 'guesser';
+    roleTwo.innerHTML = 'hider';
+  } else if (language === 'EN' && playerOne.role === 'hider') {
+    roleOne.innerHTML = 'hider';
+    roleTwo.innerHTML = 'guesser';
+  } else if (language === 'RU' && playerOne.role === 'guesser') {
+    roleOne.innerHTML = 'отгадывающий'
+    roleTwo.innerHTML = 'загадывающий'
+  } else if (language === 'RU' && playerOne.role === 'hider') {
+    roleOne.innerHTML = 'загадывающий'
+    roleTwo.innerHTML = 'отгадывающий'
+  }
 }
 
 function decideRoles() {
@@ -176,10 +202,11 @@ function renderScore() {
   scoreNumberTwo.innerHTML = `${playerTwo.score}`;
 }
 
+/*
 function changeAnnouncement() {
   switch (roundCount) {
     case 1:
-      announcements.innerHTML = `<p>Players have been assigned roles randomly</p>
+      announcements.innerHTML = `<p>Привет have been assigned roles randomly</p>
                                  <h3>Round ${roundCount}</h3>
                                  <p>Make your moves</p>`;
       break;
@@ -189,6 +216,7 @@ function changeAnnouncement() {
                                  <p>Make your moves</p>`;
   }
 }
+*/
 
 function placeBets() {
   const submitBetOne = document.getElementById("submitBetOne");
@@ -397,3 +425,75 @@ function renderMarbles() {
     marblesTwo.appendChild(pieceTwo);
   }
 }
+
+let language = 'EN';
+
+function changeLanguage() {
+  if (language === 'EN') {
+    language = 'RU'
+  } else {
+    language = 'EN'
+  }
+}
+
+function updateLanguage() {
+  const tryAgain = document.getElementById('tryAgain')
+
+  renderRoles();
+  const evenLabel = document.getElementById('evenLabel');
+  const oddLabel = document.getElementById('oddLabel')
+  const betLabel = document.getElementById('betLabel')
+  if (language === 'EN') {
+    evenLabel.innerHTML = 'Even'
+    oddLabel.innerHTML = 'Odd'
+    betLabel.innerHTML = 'Place your bet:'
+    submitBetOne.innerHTML = 'Submit'
+    languageBtn.innerHTML = 'en'
+    rules.innerHTML = 'rules'
+    if (tryAgain) {
+      tryAgain.innerHTML = 'Try again'
+    }
+  } else {
+    evenLabel.innerHTML = 'Четное'
+    oddLabel.innerHTML = 'Нечетное'
+    betLabel.innerHTML = 'Сделайте ставку:'
+    submitBetOne.innerHTML = 'Отправить'
+    languageBtn.innerHTML = 'ru'
+    rules.innerHTML = 'правила'
+    if (tryAgain) {
+      tryAgain.innerHTML = 'Еще раз'
+    }
+  }
+ 
+}
+
+function updateStarter() {
+  const nameLabel = document.getElementById('nameLabel');
+  if (language === 'EN') {
+    nameLabel.innerHTML = 'Enter name:'
+    submitName.innerHTML = 'Ok'
+    languageBtn.innerHTML = 'en'
+    rules.innerHTML = 'rules'
+  } else {
+    nameLabel.innerHTML = 'Введите имя:'
+    submitName.innerHTML = 'Ок'
+    languageBtn.innerHTML = 'ru'
+    rules.innerHTML = 'правила'
+  }
+}
+
+window.addEventListener('load', (event) => {
+  updateStarter()
+})
+
+const languageBtn = document.getElementById('language');
+languageBtn.addEventListener('click', () => {
+  if (gameStarted) {
+    changeLanguage()
+    updateLanguage()
+  } else {
+    changeLanguage()
+    updateStarter()
+  }
+  
+})
