@@ -25,22 +25,22 @@ const roleTwo = document.getElementById('roleTwo');
 const announcements = document.getElementById("announcements");
 const logs = document.querySelector('.logs');
 
-const submitName = document.getElementById('submitName');
-submitName.addEventListener('click', () => {
-  const inputName = document.getElementById('inputName');
-  if (inputName.value === "") {
+const nameInfoSubmit = document.getElementById('nameInfoSubmit');
+nameInfoSubmit.addEventListener('click', () => {
+  const nameInfoInput = document.getElementById('nameInfoInput');
+  if (nameInfoInput.value === "") {
     playerOne = Player("Player One");
   } else {
-    playerOne = Player(`${inputName.value}`);
+    playerOne = Player(`${nameInfoInput.value}`);
   }
   playerOne.ready = true;
 
   playerTwo = Player('A.I.')
   playerTwo.ready = true;
 
-  const getName = document.querySelector('.getName');
-  getName.classList.add('none')
-  getName.innerHTML = '';
+  const getInfo = document.querySelector('.getInfo');
+  getInfo.classList.add('none')
+  getInfo.innerHTML = '';
 
   const playerTwoDiv = document.getElementById('playerTwo');
   playerTwoDiv.classList.remove('hidden');
@@ -468,15 +468,15 @@ function updateLanguage() {
 }
 
 function updateStarter() {
-  const nameLabel = document.getElementById('nameLabel');
+  const nameInfoLabel = document.getElementById('nameInfoLabel');
   if (language === 'EN') {
-    nameLabel.innerHTML = 'Enter name:'
-    submitName.innerHTML = 'Play'
+    nameInfoLabel.innerHTML = 'Enter name:'
+    nameInfoSubmit.innerHTML = 'Play'
     languageBtn.innerHTML = 'en'
     rules.innerHTML = 'Rules'
   } else {
-    nameLabel.innerHTML = 'Введите имя:'
-    submitName.innerHTML = 'Играть'
+    nameInfoLabel.innerHTML = 'Введите имя:'
+    nameInfoSubmit.innerHTML = 'Играть'
     languageBtn.innerHTML = 'ru'
     rules.innerHTML = 'Правила'
   }

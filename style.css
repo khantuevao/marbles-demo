@@ -8,6 +8,8 @@ body {
 }
 
 #mainContainer {
+  display: flex;
+  flex-direction: column;
 }
 
 
@@ -43,6 +45,15 @@ input {
   justify-content: space-between;
 }
 
+.getInfo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  align-self: center;
+  justify-self: center;
+}
+
+
 .getName {
   margin-left: 1rem;
 }
@@ -55,6 +66,7 @@ input {
   text-align: center;
   gap: 0.2rem;
   margin-right: auto;
+
 }
 #nameOne, #nameTwo {
   font-size: 1.6rem;
@@ -302,3 +314,5 @@ ul {
   gap: 0.5rem;
   padding-left: 1rem;
 }
+
+
